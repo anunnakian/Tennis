@@ -29,21 +29,4 @@ public class TennisGame4 implements TennisGame {
         TennisResult result = deuce.getResult();
         return result.format();
     }
-
-    boolean receiverHasAdvantage() {
-        return receiver.getScore() >= 4 && (receiver.getScore() - server.getScore()) == 1;
-    }
-
-    boolean serverHasAdvantage() {
-        return server.getScore() >= 4 && (server.getScore() - receiver.getScore()) == 1;
-    }
-
-    boolean receiverHasWon() {
-        return receiver.getScore() >= 4 && (receiver.getScore() - server.getScore()) >= 2;
-    }
-
-    boolean serverHasWon() {
-        return server.getScore() >= 4 && (server.getScore() - receiver.getScore()) >= 2;
-    }
-
 }
