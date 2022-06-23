@@ -1,5 +1,12 @@
+import fr.ippon.tennis.Player;
 
 public interface TennisGame {
-    void wonPoint(String playerName);
+    default void wonPoint(String playerName) {
+        // nothing
+    }
+
     String getScore();
+
+    Player getServer();
+    Player getReceiver();
 }
