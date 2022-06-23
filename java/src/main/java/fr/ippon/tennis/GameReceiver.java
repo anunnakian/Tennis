@@ -2,11 +2,9 @@ package fr.ippon.tennis;
 
 class GameReceiver implements ResultProvider {
     private final TennisGame4 game;
-    private final ResultProvider nextResult;
 
-    public GameReceiver(TennisGame4 game, ResultProvider nextResult) {
+    public GameReceiver(TennisGame4 game) {
         this.game = game;
-        this.nextResult = nextResult;
     }
 
     @Override
@@ -16,8 +14,6 @@ class GameReceiver implements ResultProvider {
 
     @Override
     public TennisResult getResult() {
-        if (checkScore())
-            return new TennisResult("Win for " + game.getReceiver(), "");
-        return this.nextResult.getResult();
+        return new TennisResult("Win for " + game.getReceiver(), "");
     }
 }

@@ -2,11 +2,9 @@ package fr.ippon.tennis;
 
 class AdvantageServer implements ResultProvider {
     private final TennisGame4 game;
-    private final ResultProvider nextResult;
 
-    public AdvantageServer(TennisGame4 game, ResultProvider nextResult) {
+    public AdvantageServer(TennisGame4 game) {
         this.game = game;
-        this.nextResult = nextResult;
     }
 
     @Override
@@ -16,8 +14,6 @@ class AdvantageServer implements ResultProvider {
 
     @Override
     public TennisResult getResult() {
-        if (checkScore())
-            return new TennisResult("Advantage " + game.getServer(), "");
-        return this.nextResult.getResult();
+        return new TennisResult("Advantage " + game.getServer(), "");
     }
 }
