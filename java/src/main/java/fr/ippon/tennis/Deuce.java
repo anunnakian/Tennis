@@ -11,8 +11,12 @@ class Deuce implements ResultProvider {
 
     @Override
     public TennisResult getResult() {
-        if (game.isDeuce())
+        if (isDeuce())
             return new TennisResult("Deuce", ""); // issue empty string
         return this.nextResult.getResult();
+    }
+
+    private boolean isDeuce() {
+        return game.getServer().getScore() >= 3 && game.getReceiver().getScore() >= 3 && (game.getServer().getScore() == game.getReceiver().getScore());
     }
 }
