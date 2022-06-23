@@ -1,3 +1,5 @@
+package fr.ippon.tennis;
+
 import fr.ippon.tennis.Player;
 
 public interface TennisGame {
