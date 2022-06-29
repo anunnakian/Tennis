@@ -1,11 +1,7 @@
 package fr.ippon.tennis;
 
-import fr.ippon.tennis.Player;
-
 public interface TennisGame {
-    default void wonPoint(String playerName) {
-        // nothing
-    }
+    void wonPoint(String playerName);
 
     String getScore();
 

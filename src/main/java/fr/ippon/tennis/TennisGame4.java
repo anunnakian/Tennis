@@ -8,9 +8,9 @@ public class TennisGame4 implements TennisGame {
     private final Player server;
     private final Player receiver;
 
-    public TennisGame4(Player server, Player receiver) {
-        this.server = server; // semantic issue server/receiver
-        this.receiver = receiver;
+    public TennisGame4(String serverPlayer, String receiverPlayer) {
+        this.server = Player.of(serverPlayer);
+        this.receiver = Player.of(receiverPlayer);
     }
 
     public Player getServer() {
@@ -19,6 +19,15 @@ public class TennisGame4 implements TennisGame {
 
     public Player getReceiver() {
         return receiver;
+    }
+
+    @Override
+    public void wonPoint(String playerName) {
+        if (playerName.equals(server.getName())) {
+            server.won();
+        } else {
+            receiver.won();
+        }
     }
 
     @Override

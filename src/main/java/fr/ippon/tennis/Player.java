@@ -14,7 +14,7 @@ public class Player {
     }
 
     public void won() {
-        this.score += 1;
+        this.score++;
     }
 
     public String getName() {
