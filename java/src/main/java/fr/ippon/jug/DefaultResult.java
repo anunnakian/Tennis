@@ -1,6 +1,6 @@
-package fr.ippon.tennis;
+package fr.ippon.jug;
 
-public class DefaultResult implements ResultProvider {
+class DefaultResult implements ResultProvider {
 
     private static final String[] scores = {"Love", "Fifteen", "Thirty", "Forty"};
 
@@ -11,12 +11,11 @@ public class DefaultResult implements ResultProvider {
     }
 
     @Override
-    public boolean checkScore() {
-        return true;
-    }
-
-    @Override
     public TennisResult getResult() {
         return new TennisResult(scores[game.getServer().getScore()], scores[game.getReceiver().getScore()]);
+    }
+
+    public boolean checkScore() {
+        return true;
     }
 }

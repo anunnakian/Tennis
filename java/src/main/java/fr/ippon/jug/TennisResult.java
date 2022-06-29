@@ -1,6 +1,5 @@
-package fr.ippon.tennis;
+package fr.ippon.jug;
 
-// Result String
 class TennisResult {
     String serverScore;
     String receiverScore;
@@ -10,7 +9,7 @@ class TennisResult {
         this.receiverScore = receiverScore;
     }
 
-    String format() { // toString
+    String format() {
         if ("".equals(this.receiverScore))
             return this.serverScore;
         if (serverScore.equals(receiverScore))
