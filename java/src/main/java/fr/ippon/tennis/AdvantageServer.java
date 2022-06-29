@@ -9,11 +9,12 @@ class AdvantageServer implements ResultProvider {
 
     @Override
     public boolean checkScore() {
-        return game.getServer().getScore() >= 4 && (game.getServer().getScore() - game.getReceiver().getScore()) == 1;
+        return this.game.getServer().getScore() >= 4 && (this.game.getServer().getScore() - this.game.getReceiver().getScore()) == 1;
     }
 
     @Override
     public TennisResult getResult() {
         return new TennisResult("Advantage " + game.getServer(), "");
     }
+
 }

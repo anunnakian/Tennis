@@ -1,6 +1,6 @@
 package fr.ippon.tennis;
 
-public class DefaultResult implements ResultProvider {
+class DefaultResult implements ResultProvider {
 
     private static final String[] scores = {"Love", "Fifteen", "Thirty", "Forty"};
 

@@ -9,11 +9,12 @@ class Deuce implements ResultProvider {
 
     @Override
     public boolean checkScore() {
-        return game.getServer().getScore() >= 3 && game.getReceiver().getScore() >= 3 && (game.getServer().getScore() == game.getReceiver().getScore());
+        return this.game.getServer().getScore() >= 3 && this.game.getReceiver().getScore() >= 3
+                && (this.game.getServer().getScore() == this.game.getReceiver().getScore());
     }
 
     @Override
     public TennisResult getResult() {
-        return new TennisResult("Deuce", ""); // issue empty string
+        return new TennisResult("Deuce", "");
     }
 }

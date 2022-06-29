@@ -9,16 +9,8 @@ public class TennisGame4 implements TennisGame {
     private final Player receiver;
 
     public TennisGame4(Player server, Player receiver) {
-        this.server = server; // semantic issue server/receiver
+        this.server = server;
         this.receiver = receiver;
-    }
-
-    public Player getServer() {
-        return server;
-    }
-
-    public Player getReceiver() {
-        return receiver;
     }
 
     @Override
@@ -29,13 +21,24 @@ public class TennisGame4 implements TennisGame {
         resultProviders.add(new GameReceiver(this));
         resultProviders.add(new AdvantageServer(this));
         resultProviders.add(new AdvantageReceiver(this));
+        resultProviders.add(new DefaultResult(this));
 
-        for (ResultProvider resultProvider : resultProviders) {
-            if (resultProvider.checkScore()) {
+        for(ResultProvider resultProvider: resultProviders)
+            if(resultProvider.checkScore())
                 return resultProvider.getResult().format();
-            }
-        }
 
-        return new DefaultResult(this).getResult().format();
+        TennisResult defaultResult = new DefaultResult(this).getResult();
+        return defaultResult.format();
+    }
+
+    @Override
+    public Player getServer() {
+        return this.server;
+    }
+
+    @Override
+    public Player getReceiver() {
+        return this.receiver;
     }
 }
+
