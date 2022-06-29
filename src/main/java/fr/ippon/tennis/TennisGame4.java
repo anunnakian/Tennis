@@ -34,8 +34,8 @@ public class TennisGame4 implements TennisGame {
     public String getScore() {
         List<ResultProvider> resultProviders = new ArrayList<>();
         resultProviders.add(new Deuce(this));
-        resultProviders.add(new GameServer(this));
-        resultProviders.add(new GameReceiver(this));
+        resultProviders.add(new WinScore(server, receiver));
+        resultProviders.add(new WinScore(receiver, server));
         resultProviders.add(new AdvantageServer(this));
         resultProviders.add(new AdvantageReceiver(this));
 
