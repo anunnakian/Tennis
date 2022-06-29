@@ -1,6 +1,8 @@
-package fr.ippon.tennis;
+package fr.ippon.tennis.score;
 
-class Deuce implements ResultProvider {
+import fr.ippon.tennis.TennisGame4;
+
+public class Deuce implements Score {
     private final TennisGame4 game;
 
     public Deuce(TennisGame4 game) {
@@ -13,7 +15,7 @@ class Deuce implements ResultProvider {
     }
 
     @Override
-    public TennisResult getResult() {
-        return new TennisResult("Deuce", ""); // issue empty string
+    public String getScore() {
+        return "Deuce";
     }
 }

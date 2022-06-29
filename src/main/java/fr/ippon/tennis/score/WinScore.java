@@ -1,6 +1,8 @@
-package fr.ippon.tennis;
+package fr.ippon.tennis.score;
 
-public class WinScore implements ResultProvider {
+import fr.ippon.tennis.Player;
+
+public class WinScore implements Score {
 
     private Player player1;
     private Player player2;
@@ -16,7 +18,7 @@ public class WinScore implements ResultProvider {
     }
 
     @Override
-    public TennisResult getResult() {
-        return new TennisResult("Win for " + player1, "");
+    public String getScore() {
+        return "Win for " + player1;
     }
 }

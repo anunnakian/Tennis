@@ -1,6 +1,8 @@
-package fr.ippon.tennis;
+package fr.ippon.tennis.score;
 
-public class AdvantageScore implements ResultProvider {
+import fr.ippon.tennis.Player;
+
+public class AdvantageScore implements Score {
 
     private Player player1;
     private Player player2;
@@ -14,8 +16,9 @@ public class AdvantageScore implements ResultProvider {
     public boolean checkScore() {
         return player1.getScore() >= 4 && (player1.getScore() - player2.getScore()) == 1;
     }
+
     @Override
-    public TennisResult getResult() {
-        return new TennisResult("Advantage " + player1, "");
+    public String getScore() {
+        return "Advantage " + player1;
     }
 }

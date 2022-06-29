@@ -1,5 +1,7 @@
 package fr.ippon.tennis;
 
+import fr.ippon.tennis.score.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,19 +34,19 @@ public class TennisGame4 implements TennisGame {
 
     @Override
     public String getScore() {
-        List<ResultProvider> resultProviders = new ArrayList<>();
-        resultProviders.add(new Deuce(this));
-        resultProviders.add(new WinScore(server, receiver));
-        resultProviders.add(new WinScore(receiver, server));
-        resultProviders.add(new AdvantageScore(server, receiver));
-        resultProviders.add(new AdvantageScore(receiver, server));
+        List<Score> scores = new ArrayList<>();
+        scores.add(new Deuce(this));
+        scores.add(new WinScore(server, receiver));
+        scores.add(new WinScore(receiver, server));
+        scores.add(new AdvantageScore(server, receiver));
+        scores.add(new AdvantageScore(receiver, server));
 
-        for (ResultProvider resultProvider : resultProviders) {
-            if (resultProvider.checkScore()) {
-                return resultProvider.getResult().format();
+        for (Score score : scores) {
+            if (score.checkScore()) {
+                return score.getScore();
             }
         }
 
-        return new DefaultResult(this).getResult().format();
+        return new NormalScore(this).getScore();
     }
 }
