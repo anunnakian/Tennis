@@ -2,6 +2,7 @@
 *.swp
 
 # Eclipse files
+.classpath
 .project
 .settings/
 
@@ -12,3 +13,7 @@
 # VS
 .vs/
 .vscode/
+
+# Maven
+target/
+
