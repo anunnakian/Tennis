@@ -3,9 +3,6 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.Collection;
 
-import fr.ippon.tennis.Player;
-import fr.ippon.tennis.TennisGame;
-import fr.ippon.tennis.TennisGame4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -68,18 +65,39 @@ public class TennisTest {
         });
     }
 
-    @Test
-    public void checkAllScoresTennisGame4() {
-        TennisGame game = new TennisGame4(Player.of("player1"), Player.of("player2"));
-
+    public void checkAllScores(TennisGame game) {
         int highestScore = Math.max(this.player1Score, this.player2Score);
         for (int i = 0; i < highestScore; i++) {
             if (i < this.player1Score)
-                game.getServer().won();
+                game.wonPoint("player1");
             if (i < this.player2Score)
-                game.getReceiver().won();
+                game.wonPoint("player2");
         }
         assertEquals(this.expectedScore, game.getScore());
+    }
+
+    @Test
+    public void checkAllScoresTennisGame1() {
+        TennisGame1 game = new TennisGame1("player1", "player2");
+        checkAllScores(game);
+    }
+
+    @Test
+    public void checkAllScoresTennisGame2() {
+        TennisGame2 game = new TennisGame2("player1", "player2");
+        checkAllScores(game);
+    }
+
+    @Test
+    public void checkAllScoresTennisGame3() {
+        TennisGame3 game = new TennisGame3("player1", "player2");
+        checkAllScores(game);
+    }
+
+    @Test
+    public void checkAllScoresTennisGame4() {
+        TennisGame game = new TennisGame4("player1", "player2");
+        checkAllScores(game);
     }
 
 }
