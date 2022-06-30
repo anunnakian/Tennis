@@ -2,7 +2,7 @@ package fr.ippon.tennis.score;
 
 import fr.ippon.tennis.Player;
 
-public class AdvantageScore implements Score {
+public class AdvantageScore implements ConditionalScore {
 
     private Player player1;
     private Player player2;

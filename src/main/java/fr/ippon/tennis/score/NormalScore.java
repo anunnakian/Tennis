@@ -13,11 +13,6 @@ public class NormalScore implements Score {
     }
 
     @Override
-    public boolean checkScore() {
-        return true;
-    }
-
-    @Override
     public String getScore() {
         String serverScore = scores[game.getServer().getScore()];
         String receiverScore = scores[game.getReceiver().getScore()];

@@ -34,14 +34,14 @@ public class TennisGame4 implements TennisGame {
 
     @Override
     public String getScore() {
-        List<Score> scores = new ArrayList<>();
+        List<ConditionalScore> scores = new ArrayList<>();
         scores.add(new Deuce(this));
         scores.add(new WinScore(server, receiver));
         scores.add(new WinScore(receiver, server));
         scores.add(new AdvantageScore(server, receiver));
         scores.add(new AdvantageScore(receiver, server));
 
-        for (Score score : scores) {
+        for (ConditionalScore score : scores) {
             if (score.checkScore()) {
                 return score.getScore();
             }
