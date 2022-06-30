@@ -15,7 +15,7 @@ public class Deuce implements ConditionalScore {
     }
 
     @Override
-    public String getScore() {
+    public String toString() {
         return "Deuce";
     }
 }

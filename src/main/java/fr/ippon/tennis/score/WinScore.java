@@ -18,7 +18,7 @@ public class WinScore implements ConditionalScore {
     }
 
     @Override
-    public String getScore() {
+    public String toString() {
         return "Win for " + player1;
     }
 }

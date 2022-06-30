@@ -41,12 +41,12 @@ public class TennisGame4 implements TennisGame {
         scores.add(new AdvantageScore(server, receiver));
         scores.add(new AdvantageScore(receiver, server));
 
-        for (ConditionalScore score : scores) {
+        for (var score : scores) {
             if (score.checkScore()) {
-                return score.getScore();
+                return score.toString();
             }
         }
 
-        return new NormalScore(this).getScore();
+        return new NormalScore(this).toString();
     }
 }

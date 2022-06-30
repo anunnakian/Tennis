@@ -13,7 +13,7 @@ public class NormalScore implements Score {
     }
 
     @Override
-    public String getScore() {
+    public String toString() {
         String serverScore = scores[game.getServer().getScore()];
         String receiverScore = scores[game.getReceiver().getScore()];
         if (serverScore.equals(receiverScore))

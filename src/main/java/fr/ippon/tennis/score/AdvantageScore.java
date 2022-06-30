@@ -18,7 +18,7 @@ public class AdvantageScore implements ConditionalScore {
     }
 
     @Override
-    public String getScore() {
+    public String toString() {
         return "Advantage " + player1;
     }
 }
